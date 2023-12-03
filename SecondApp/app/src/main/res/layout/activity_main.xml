@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#E0E0E0">
+
+        <!-- Cụm 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#B3E0E0"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="ĐÈN KHÁCH"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <ToggleButton
+                android:id="@+id/nndk"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#FF9800"
+                android:background="@drawable/circle"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 2 -->
+        <!-- Cụm 2 và các cụm tiếp theo sử dụng thuộc tính padding để tạo khoảng cách giữa các hàng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#B3E0E0"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="QUẠT KHÁCH"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <ToggleButton
+                android:id="@+id/nnqk"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#FF9800"
+                android:background="@drawable/circle"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="NHIỆT ĐỘ KHÁCH"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/ndk"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="35"
+                android:textColor="#03A9F4"
+                android:textSize="30sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="ĐỘ ẨM KHÁCH"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/dak"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="35"
+                android:textColor="#03A9F4"
+                android:textSize="30sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 5 -->
+        <!-- Đồng nhất với các cụm khác -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#B3E0E0"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="ĐÈN NGỦ"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <ToggleButton
+                android:id="@+id/nndn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#FF9800"
+                android:background="@drawable/circle"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 6 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#B3E0E0"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="QUẠT NGỦ"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <ToggleButton
+                android:id="@+id/nnqn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#FF9800"
+                android:background="@drawable/circle"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 7 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="NHIỆT ĐỘ NGỦ"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/ndn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="35"
+                android:textColor="#2196F3"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!-- Cụm 8 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="ĐỘ ẨM NGỦ"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/dan"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="35"
+                android:textColor="#03A9F4"
+                android:textSize="30sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 9 -->
+        <!-- Đồng nhất với các cụm khác -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#B3E0E0"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="ĐÈN BẾP"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <ToggleButton
+                android:id="@+id/nndb"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#FF9800"
+                android:background="@drawable/circle"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Cụm 10 -->
+        <!-- Đồng nhất với các cụm khác -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#B3E0E0"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="QUẠT BẾP"
+                android:textColor="#2259FF"
+                android:textSize="20sp"/>
+
+            <ToggleButton
+                android:id="@+id/nnqb"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#FF9800"
+                android:background="@drawable/circle"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./demo.css">
+    <title>Your Web Page</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">MY PROJECT</div>
+        
+        <!-- Container cho Device 1 đến 4 -->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">NHIET DO PHONG KHACH</div>
+                    <img src="./Sprites/temperature.png" alt="Device 1 Image" class="device-image">
+                    <div class="device-content">35</div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">DO AM PHONG KHACH</div>
+                    <img src="./Sprites/humidity.png" alt="Device 2 Image" class="device-image">
+                    <div class="device-content">35</div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">NHIET DO PHONG NGU</div>
+                    <img src="./Sprites/temperature.png" alt="Device 3 Image" class="device-image">
+                    <div class="device-content">35</div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">DO AM PHONG NGU</div>
+                    <img src="./Sprites/humidity.png" alt="Device 4 Image" class="device-image">
+                    <div class="device-content">35</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container cho Device 5 đến 10 -->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">DEN PHONG KHACH</div>
+                    <img src="./Sprites/guesslamps.png" alt="Device 5 Image" class="device-image">
+                    <div class="button-container">
+                        <button class="on-button">ON</button>
+                        <button class="off-button">OFF</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">QUAT PHONG KHACH</div>
+                    <img src="./Sprites/guessfan.png" alt="Device 6 Image" class="device-image">
+                    <div class="button-container">
+                        <button class="on-button">ON</button>
+                        <button class="off-button">OFF</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">DEN PHONG NGU</div>
+                    <img src="./Sprites/bedroomlamp.png" alt="Device 7 Image" class="device-image">
+                    <div class="button-container">
+                        <button class="on-button">ON</button>
+                        <button class="off-button">OFF</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">QUAT PHONG NGU</div>
+                    <img src="./Sprites/bedroomfan.png" alt="Device 8 Image" class="device-image">
+                    <div class="button-container">
+                        <button class="on-button">ON</button>
+                        <button class="off-button">OFF</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">DEN PHONG BEP</div>
+                    <img src="./Sprites/kitchenlight.png" alt="Device 9 Image" class="device-image">
+                    <div class="button-container">
+                        <button class="on-button">ON</button>
+                        <button class="off-button">OFF</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="device">
+                    <div class="device-name">QUAT PHONG BEP</div>
+                    <img src="./Sprites/kitchenfan.png" alt="Device 10 Image" class="device-image">
+                    <div class="button-container">
+                        <button class="on-button">ON</button>
+                        <button class="off-button">OFF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+
+    <script>
+        // Thông tin kết nối MQTT
+        var broker = "wss://driver.cloudmqtt.com:38688/mqtt";  // Đổi thành thông tin MQTT broker của bạn
+        var clientId = "web-client-" + Math.random().toString(16).substr(2, 8);
+        var username = "bkyspevk";  // Đổi thành tên đăng nhập của bạn
+        var password = "xWUeCfhepP2D";  // Đổi thành mật khẩu của bạn
+      
+        // Tạo đối tượng client MQTT
+        var client = new Paho.MQTT.Client(broker, clientId);
+
+        // Khi nhận được thông điệp từ MQTT broker
+        client.onMessageArrived = function (message) {
+            console.log("Nhận thông điệp: " + message.payloadString);
+
+            // Kiểm tra chủ đề và cập nhật nội dung tương ứng
+            switch (message.destinationName) {
+                case "NDK":
+                    updateDeviceContent(1, message.payloadString);
+                    break;
+                case "DAK":
+                    updateDeviceContent(2, message.payloadString);
+                    break;
+                case "NDN":
+                    updateDeviceContent(3, message.payloadString);
+                    break;
+                case "DAN":
+                    updateDeviceContent(4, message.payloadString);
+                    break;
+                // Thêm các trường hợp khác nếu cần thiết
+            }
+        };
+
+        // Hàm cập nhật nội dung của thiết bị
+        function updateDeviceContent(deviceNumber, value) {
+            var deviceContentElement = document.querySelector(".grid-item:nth-child(" + deviceNumber + ") .device-content");
+            if (deviceContentElement) {
+                deviceContentElement.textContent = value;
+                console.log("Kết haha" + value);
+            }
+        }
+      
+        // Khi kết nối được thiết lập
+        client.onConnectionLost = function (responseObject) {
+          if (responseObject.errorCode !== 0) {
+            console.log("Kết nối đã mất: " + responseObject.errorMessage);
+          }
+          connect();
+        };
+      
+        function connect() {
+            var options = {
+                onSuccess: function () {
+                    console.log("Connected successfully");
+                    client.subscribe("NDK");
+                    client.subscribe("DAK");
+                    client.subscribe("NDN");
+                    client.subscribe("DAN");
+                },
+                onFailure: function (message) {
+                    console.log("Connection failed: " + message.errorMessage);
+                    setTimeout(connect, 5000); // Retry after 5 seconds
+                },
+                userName: username,
+                password: password,
+            };
+            client.connect(options);
+        }
+
+        connect();
+
+        // Hàm gửi thông điệp ON/OFF
+        function sendControlMessage(topic, message) {
+            var controlMessage = new Paho.MQTT.Message(message);
+            controlMessage.destinationName = topic;
+            client.send(controlMessage);
+        }
+
+        // Bắt sự kiện khi nhấn nút ON của Device 5
+        document.querySelector(".grid-item:nth-child(1) .on-button").addEventListener("click", function () {
+            sendControlMessage("DK", "1");
+            sendControlMessage("DKG", "1");
+        });
+
+        // Bắt sự kiện khi nhấn nút OFF của Device 5
+        document.querySelector(".grid-item:nth-child(1) .off-button").addEventListener("click", function () {
+            sendControlMessage("DK", "0");
+            sendControlMessage("DKG", "0");
+        });
+
+        // Bắt sự kiện khi nhấn nút ON của Device 6
+        document.querySelector(".grid-item:nth-child(2) .on-button").addEventListener("click", function () {
+            sendControlMessage("QK", "1");
+            sendControlMessage("QKG", "1");
+        });
+
+        // Bắt sự kiện khi nhấn nút OFF của Device 6
+        document.querySelector(".grid-item:nth-child(2) .off-button").addEventListener("click", function () {
+            sendControlMessage("QK", "0");
+            sendControlMessage("QKG", "0");
+        });
+
+        // Bắt sự kiện khi nhấn nút ON của Device 7
+        document.querySelector(".grid-item:nth-child(3) .on-button").addEventListener("click", function () {
+            sendControlMessage("DN", "1");
+            sendControlMessage("DNG", "1");
+        });
+
+        // Bắt sự kiện khi nhấn nút OFF của Device 7
+        document.querySelector(".grid-item:nth-child(3) .off-button").addEventListener("click", function () {
+            sendControlMessage("DN", "0");
+            sendControlMessage("DNG", "0");
+        });
+
+        // Bắt sự kiện khi nhấn nút ON của Device 8
+        document.querySelector(".grid-item:nth-child(4) .on-button").addEventListener("click", function () {
+            sendControlMessage("QN", "1");
+            sendControlMessage("QNG", "1");
+        });
+
+        // Bắt sự kiện khi nhấn nút OFF của Device 8
+        document.querySelector(".grid-item:nth-child(4) .off-button").addEventListener("click", function () {
+            sendControlMessage("QN", "0");
+            sendControlMessage("QNG", "0");
+        });
+
+        // Bắt sự kiện khi nhấn nút ON của Device 9
+        document.querySelector(".grid-item:nth-child(5) .on-button").addEventListener("click", function () {
+            sendControlMessage("DB", "1");
+            sendControlMessage("DBG", "1");
+        });
+
+        // Bắt sự kiện khi nhấn nút OFF của Device 9
+        document.querySelector(".grid-item:nth-child(5) .off-button").addEventListener("click", function () {
+            sendControlMessage("DB", "0");
+            sendControlMessage("DBG", "0");
+        });
+
+        // Bắt sự kiện khi nhấn nút ON của Device 10
+        document.querySelector(".grid-item:nth-child(6) .on-button").addEventListener("click", function () {
+            sendControlMessage("QB", "1");
+            sendControlMessage("QBG", "1");
+        });
+
+        // Bắt sự kiện khi nhấn nút OFF của Device 10
+        document.querySelector(".grid-item:nth-child(6) .off-button").addEventListener("click", function () {
+            sendControlMessage("QB", "0");
+            sendControlMessage("QBG", "0");
+        });
+      
+      </script>
+      
+</body>
+</html>

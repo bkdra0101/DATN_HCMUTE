@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Nhan_do_an/HK2_2021_2022/111.Danh_Mach_nha_kho_Lora_Esp_MQTT_Arduino/SecondApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Nhan_do_an/HK2_2021_2022/31.Nhut_Mach_DHT22_DS1307_LCD_MQ2_RFID_SV_MB_quat_Loa_ESP_Blynk_Arduino/SecondApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Nhan_do_an/HK2_2021_2022/45.Dung_Mach_RFID_DS18b20_Dat_QT_den_2MB_HN_ESP_MQTT_Arduino/SecondApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

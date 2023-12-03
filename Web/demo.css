@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Màu nền cho container */
+}
+
+.title {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px; /* Khoảng cách giữa tiêu đề và lưới ô */
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover {
+  transform: scale(1.1);
+}
+
+.device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.device-image {
+  width: 100px; /* Độ rộng cố định của ảnh */
+  height: 100px; /* Chiều cao cố định của ảnh */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo khi thay đổi kích thước */
+  margin: 20px 0; /* Khoảng cách giữa ảnh và nội dung */
+}
+
+.device-name {
+  font-weight: bold;
+}
+
+.device-content {
+  margin-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.on-button,
+.off-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #4caf50; /* Màu nền cho nút ON */
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.off-button {
+  background-color: #f44336; /* Màu nền cho nút OFF */
+}
+
+.button-container:hover {
+  transform: scale(1.1);
+}
+
+.on-button:active,
+.off-button:active {
+  transform: scale(0.9);
+}
